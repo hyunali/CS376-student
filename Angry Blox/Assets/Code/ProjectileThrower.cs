@@ -71,7 +71,9 @@ public class ProjectileThrower : MonoBehaviour {
     /// <returns></returns>
     bool WaitingForPhysicsToSettle()
     {
-        return true;  // Replace this
+
+        return IsActive(myRigidBody) ? true : false;
+        // return true;  // Replace this
     }
 
     /// <summary>
@@ -86,6 +88,16 @@ public class ProjectileThrower : MonoBehaviour {
     internal void Update()
     {
         FireControl();
+        // if the firingstate is firing or beyond: reload the level
+        if (firingState == FiringState.Firing)
+        {
+            //reload the level
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //reload the level
+        }
+        
     }
 
     /// <summary>
