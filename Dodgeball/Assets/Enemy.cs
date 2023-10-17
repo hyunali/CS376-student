@@ -94,19 +94,6 @@ public class Enemy : MonoBehaviour
     private void Fire()
     {
         // TODO
-        // Vector2 enemyPosition = rigidBody.position;
-        // Vector2 enemyOrbPosition = enemyPosition + HeadingToPlayer; // create new position to spawn orb at
-        //
-        // GameObject enemyOrb = Instantiate(OrbPrefab); // create new orb to fire
-        // // Rigidbody2D enemyOrbRigidBody = enemyOrb.GetComponent<Rigidbody2D>();
-        // enemyOrbRigidBody = enemyOrb.GetComponent<Rigidbody2D>();
-        //
-        // // enemyOrbRigidBody.position = enemyOrbPosition;
-        // enemyOrb.transform.position = enemyOrbPosition;
-        //
-        // // Vector2 playerPosition = player.position;  // get player position to fire at
-        // enemyOrbRigidBody.mass = OrbMass; // setting enemy orb mass
-        // enemyOrbRigidBody.velocity = HeadingToPlayer * OrbVelocity; // update velocity of enemy orb
 
         Vector2 enemyPosition = transform.position; // enemy's position
         // GameObject enemyOrb = Instantiate(OrbPrefab); // creating new orb to fire
