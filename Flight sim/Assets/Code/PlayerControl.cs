@@ -93,15 +93,28 @@ public class PlayerControl : MonoBehaviour {
         throw new NotImplementedException();
         
         // update pitch and roll
-        
-        // update *roll* using 'horizontal' axis ranging from (-rollRange,+rollRange)
-        // update *pitch* using 'vertical' axis ranging from (-pitchRange,+pitchRange)
+            // update *roll* using 'horizontal' axis ranging from (-rollRange,+rollRange)
+            // update *pitch* using 'vertical' axis ranging from (-pitchRange,+pitchRange)
         
         // calculate yaw -- note: d/dt(yaw) = roll * rotationSpeed
-        //  (change in yaw over time is (roll*rotationSpeed)
+            //  (change in yaw over time is (roll*rotationSpeed)
         
         // use moveRotation() method to update where the plane is pointing
-        // i.e. rigidBody.MoveRotation(rigidBody.rotation * change)
+            // i.e. rigidBody.MoveRotation(rigidBody.rotation * change)
+        // first, make the quaternion for the desired rotation
+            // i.e. Quaternion deltaRotation = Quaternion.Euler(pitch,yaw,roll)
+            
+        // so rigidBody.MoveRotation(rigidBody.rotation * deltaRotation)
+        //  or rigidBody.MoveRotation(deltaRotation)   ---- figure it out later on 
+        
+        
+        // after this go back and lerp the roll and pitch so that the movement
+        //  is smoother
+        
+        // roll = Mathf.Lerp(yaw, joystickRoll, weight);
+        // pitch = Mathf.Lerp(pitch, joystickpitch, weight);
+        // recommended weight: 0.01f
+            
     }
 
     /// <summary>
