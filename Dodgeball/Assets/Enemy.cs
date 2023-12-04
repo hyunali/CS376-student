@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -57,6 +58,10 @@ public class Enemy : MonoBehaviour
     /// Unit vector in the direction of the player, relative to us
     /// </summary>
     private Vector2 HeadingToPlayer => OffsetToPlayer.normalized;
+    
+    /// i added this ~ hyunali
+    public float lapsedTime = 0;
+    public Rigidbody2D enemyOrbRigidBody;
 
     /// <summary>
     /// Initialize player and rigidBody fields
@@ -75,6 +80,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         // TODO
+        if (Time.time > lapsedTime) // fire an orb every 1 seconds
+        {
+            Fire();
+            lapsedTime = Time.time + CoolDownTime; // update the cooldown
+        }
     }
 
     /// <summary>
@@ -84,6 +94,22 @@ public class Enemy : MonoBehaviour
     private void Fire()
     {
         // TODO
+
+        Vector2 enemyPosition = transform.position; // enemy's position
+        // GameObject enemyOrb = Instantiate(OrbPrefab); // creating new orb to fire
+        Vector2 spawnPoint = enemyPosition + HeadingToPlayer;
+        GameObject enemyOrb = Instantiate(OrbPrefab, spawnPoint, quaternion.identity); // creating new orb to fire
+        
+        enemyOrb.transform.position = spawnPoint;
+
+        Rigidbody2D enemyOrbRigidBody = enemyOrb.GetComponent<Rigidbody2D>();
+        
+        // get the orb's rigidbody and apply acceleration
+        enemyOrbRigidBody.mass = OrbMass; // setting enemy orb mass
+        enemyOrbRigidBody.velocity = HeadingToPlayer * OrbVelocity; // update velocity of enemy orb
+
+
+
     }
 
     /// <summary>
