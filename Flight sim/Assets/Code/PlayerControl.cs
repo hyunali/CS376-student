@@ -91,6 +91,17 @@ public class PlayerControl : MonoBehaviour {
     private void FixedUpdate()
     {
         throw new NotImplementedException();
+        
+        // update pitch and roll
+        
+        // update *roll* using 'horizontal' axis ranging from (-rollRange,+rollRange)
+        // update *pitch* using 'vertical' axis ranging from (-pitchRange,+pitchRange)
+        
+        // calculate yaw -- note: d/dt(yaw) = roll * rotationSpeed
+        //  (change in yaw over time is (roll*rotationSpeed)
+        
+        // use moveRotation() method to update where the plane is pointing
+        // i.e. rigidBody.MoveRotation(rigidBody.rotation * change)
     }
 
     /// <summary>
