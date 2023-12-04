@@ -86,35 +86,51 @@ public class PlayerControl : MonoBehaviour {
     internal void Start() {
         playerRB = GetComponent<Rigidbody>();
         playerRB.velocity = transform.forward*3;
+
+        pitch = 0f; // initialising values...
+        yaw = 0f;
+        roll = 0f;
+        thrust = 0f;
+
     }
 
     private void FixedUpdate()
     {
-        throw new NotImplementedException();
-        
         // update pitch and roll
             // update *roll* using 'horizontal' axis ranging from (-rollRange,+rollRange)
             // update *pitch* using 'vertical' axis ranging from (-pitchRange,+pitchRange)
-        
-        // calculate yaw -- note: d/dt(yaw) = roll * rotationSpeed
-            //  (change in yaw over time is (roll*rotationSpeed)
-        
-        // use moveRotation() method to update where the plane is pointing
-            // i.e. rigidBody.MoveRotation(rigidBody.rotation * change)
-        // first, make the quaternion for the desired rotation
-            // i.e. Quaternion deltaRotation = Quaternion.Euler(pitch,yaw,roll)
             
+        float joystickRoll = Input.GetAxis("Horizontal");
+        float joystickPitch = Input.GetAxis("Vertical");
+
+        roll += joystickRoll;   // increment the roll and pitch
+        pitch += joystickPitch;
+
+        // float weight = 0.01f;        // try this later on
+        // roll = Mathf.Lerp(yaw, joystickRoll, weight);
+        // pitch = Mathf.Lerp(pitch, joystickPitch, weight);
+        
+
+        // calculate yaw -- note: d/dt(yaw) = roll * rotationSpeed
+        //  (change in yaw over time is (roll*rotationSpeed)
+
+        // use moveRotation() method to update where the plane is pointing
+        // i.e. rigidBody.MoveRotation(rigidBody.rotation * change)
+        // first, make the quaternion for the desired rotation
+        // i.e. Quaternion deltaRotation = Quaternion.Euler(pitch,yaw,roll)
+        
+        Quaternion deltaRotation = Quaternion.Euler(pitch, yaw, roll);
+
         // so rigidBody.MoveRotation(rigidBody.rotation * deltaRotation)
         //  or rigidBody.MoveRotation(deltaRotation)   ---- figure it out later on 
         
-        
+        playerRB.MoveRotation(deltaRotation);   // updating rotation
+    
+
         // after this go back and lerp the roll and pitch so that the movement
         //  is smoother
-        
-        // roll = Mathf.Lerp(yaw, joystickRoll, weight);
-        // pitch = Mathf.Lerp(pitch, joystickpitch, weight);
-        // recommended weight: 0.01f
-            
+
+
     }
 
     /// <summary>
