@@ -39,6 +39,10 @@ public class PlayerControl : MonoBehaviour {
     /// </summary>
     public float MaximumThrust = 20f;
 
+    // can change this
+    [Range (0.1f, 1.0f)]
+    public float lerp_weight = 0.5f;
+
     /// <summary>
     /// Text element for displaying status information
     /// </summary>
@@ -104,11 +108,15 @@ public class PlayerControl : MonoBehaviour {
         float joystickPitch = Input.GetAxis("Vertical");
 
         roll += joystickRoll;   // increment the roll and pitch
+        roll = Mathf.Clamp(roll, -1 * RollRange, RollRange);
+         
+        
         pitch += joystickPitch;
+        pitch = Mathf.Clamp(pitch, -1 * PitchRange, PitchRange);
 
-        // float weight = 0.01f;        // try this later on
-        // roll = Mathf.Lerp(yaw, joystickRoll, weight);
-        // pitch = Mathf.Lerp(pitch, joystickPitch, weight);
+        // float lerp_weight = 0.05f;        // try this later on
+        // roll = Mathf.Lerp(yaw, joystickRoll, lerp_weight);
+        // pitch = Mathf.Lerp(pitch, joystickPitch, lerp_weight);
         
 
         // calculate yaw -- note: d/dt(yaw) = roll * rotationSpeed
