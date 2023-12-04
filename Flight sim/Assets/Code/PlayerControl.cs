@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
@@ -85,6 +86,11 @@ public class PlayerControl : MonoBehaviour {
     internal void Start() {
         playerRB = GetComponent<Rigidbody>();
         playerRB.velocity = transform.forward*3;
+    }
+
+    private void FixedUpdate()
+    {
+        throw new NotImplementedException();
     }
 
     /// <summary>
