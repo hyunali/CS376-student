@@ -40,7 +40,7 @@ public class PlayerControl : MonoBehaviour {
     public float MaximumThrust = 20f;
 
     // can change this
-    [Range (0.01f, 1.0f)]
+    [Range(0.01f, 1.0f)] 
     public float lerp_weight = 0.5f;
 
     /// <summary>
@@ -106,31 +106,39 @@ public class PlayerControl : MonoBehaviour {
             
         float joystickRoll = Input.GetAxis("Horizontal");
         float joystickPitch = Input.GetAxis("Vertical");
+        float thrustJoystick = Input.GetAxis("Thrust");
+        
 
-        roll += joystickRoll;   // increment the roll and pitch
+        joystickRoll = joystickRoll * RollRange;
+        roll = Mathf.Lerp(roll, joystickRoll, lerp_weight);
         roll = Mathf.Clamp(roll, -1 * RollRange, RollRange);
-        // roll = Mathf.Clamp(roll + joystickRoll, -1 * RollRange, RollRange);
-        
-        pitch += joystickPitch;
+
+        joystickPitch = joystickPitch * PitchRange;
+        pitch = Mathf.Lerp(pitch, pitch + joystickPitch, lerp_weight);
         pitch = Mathf.Clamp(pitch, -1 * PitchRange, PitchRange);
-        // pitch = Mathf.Clamp(pitch + joystickPitch, -1 * PitchRange, PitchRange);
         
-
         // calculate yaw -- note: d/dt(yaw) = roll * rotationSpeed
-        //  (change in yaw over time is (roll*rotationSpeed)
-        yaw = roll * RotationalSpeed;
-
+        
+        // yaw = -1*(roll * RotationalSpeed);
+        yaw = Mathf.Lerp(yaw, yaw + (-1*roll * RotationalSpeed), lerp_weight);
+        
         // use moveRotation() method to update where the plane is pointing
         // i.e. rigidBody.MoveRotation(rigidBody.rotation * change)
         // first, make the quaternion for the desired rotation, then update
         // i.e. Quaternion deltaRotation = Quaternion.Euler(pitch,yaw,roll)
         
-        
         Quaternion deltaRotation = Quaternion.Euler(pitch, yaw, roll);
-        
         playerRB.MoveRotation(deltaRotation);   // updating rotation
         
+        // calculate thrust
+        // apply a force to forward direction of plane proportional to value
+        //  of the 'thrust' axis
+        // note: keep this clamped above 0 (no negative thrust)
 
+        thrust += thrustJoystick;
+        thrust = Mathf.Clamp(thrust, 0, MaximumThrust);
+
+        playerRB.velocity = transform.forward * thrust;
 
     }
 

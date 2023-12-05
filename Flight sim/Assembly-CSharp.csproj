@@ -316,16 +316,16 @@
      <HintPath>/Volumes/NEJI-SSD/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
-     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Tracker.dll</HintPath>
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.analytics@3.8.1/Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.Editor">
-     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.analytics@3.6.12/Unity.Analytics.Editor.dll</HintPath>
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.analytics@3.8.1/Unity.Analytics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.StandardEvents">
-     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.analytics@3.6.12/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/PackageCache/com.unity.analytics@3.8.1/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll</HintPath>
      </Reference>
      <Reference Include="netstandard">
      <HintPath>/Volumes/NEJI-SSD/Applications/Unity/Unity.app/Contents/NetStandard/ref/2.1.0/netstandard.dll</HintPath>
@@ -699,6 +699,9 @@
      <Reference Include="UnityEngine.Purchasing.Stores">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/UnityEngine.Purchasing.Stores.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.AI.Navigation">
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.AI.Navigation.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.XR.LegacyInputHelpers">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
      </Reference>
@@ -765,6 +768,9 @@
      <Reference Include="UnityEngine.Purchasing.SecurityCore">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/UnityEngine.Purchasing.SecurityCore.dll</HintPath>
      </Reference>
+     <Reference Include="Unity.AI.Navigation.Updater">
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.AI.Navigation.Updater.dll</HintPath>
+     </Reference>
      <Reference Include="UnityEngine.Purchasing.Codeless">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/UnityEngine.Purchasing.Codeless.dll</HintPath>
      </Reference>
@@ -777,11 +783,14 @@
      <Reference Include="Unity.Services.Core.Analytics">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.Services.Core.Analytics.dll</HintPath>
      </Reference>
-     <Reference Include="UnityEngine.Monetization">
-     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/UnityEngine.Monetization.dll</HintPath>
-     </Reference>
      <Reference Include="Unity.TextMeshPro.Editor">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.AI.Navigation.Editor">
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.dll</HintPath>
+     </Reference>
+     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+     <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
      </Reference>
      <Reference Include="Unity.VSCode.Editor">
      <HintPath>/Volumes/NEJI-SSD/COMP_SCI 376/CS376-student/Flight sim/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
